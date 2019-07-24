@@ -49,3 +49,12 @@ My pipeline consisted of the following steps.
 
 1. Perhaps we can restrict the range of slope in the lane lines, to remove more noise, for example, the horizontal line (slope near to 0) is definitely a noise.
 2. Need an adaptive function to tune the parameters automatically, may seek help from deep learning, let the program to recognize different types of image and then choose the suitable parameters
+
+---
+### Changes after review
+1. Derease gaussian blur kernel size to 3
+
+2. Tune parameters of Hough transformation: threshold = 55, min_line_length = 110, max_line_gap = 120
+
+3. Apply the prior knowledge of the video, to remove the lane line shakeness.
+   Compare the coordinates of current lane line to the prior average, if the difference of pixels greater than 150, use the average instead
